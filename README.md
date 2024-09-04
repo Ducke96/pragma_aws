@@ -69,7 +69,7 @@ Example Body :
   
 http://localhost:8083/producto/ProductosMaxStock/1
 - @Post http://localhost:8083/producto
-- 
+
 Example Body : 
         {  
             "Sucursal":{
