@@ -43,9 +43,9 @@ Si usas maven
 ## ECSEndpoint
 1. **Franquicias**
 
-   - @Get [http://localhost:8083/franquicia](http://balanceo-nequi-2132359272.us-east-2.elb.amazonaws.com/franquicia)
-   - @Get [http://localhost:8083/franquicia](http://balanceo-nequi-2132359272.us-east-2.elb.amazonaws.com/franquicia)/{id}
-   - @Post [http://localhost:8083/franquicia](http://balanceo-nequi-2132359272.us-east-2.elb.amazonaws.com/franquicia)
+   - @Get http://localhost:8083/franquicia](http://balanceo-nequi-2132359272.us-east-2.elb.amazonaws.com/franquicia
+   - @Get http://localhost:8083/franquicia](http://balanceo-nequi-2132359272.us-east-2.elb.amazonaws.com/franquicia/{id}
+   - @Post http://localhost:8083/franquicia](http://balanceo-nequi-2132359272.us-east-2.elb.amazonaws.com/franquicia
      
    Example Body :  {    
          "nombre": "franquicia2"
