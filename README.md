@@ -9,7 +9,7 @@ Este es un proyecto de ejemplo desarrollado con Spring Boot. A continuación, se
 - [Instalación](#instalación)
 - [Docker](#Docker)
 - [Configuración](#configuración)
-- [Endpoints](#endpoints)
+- [ECSEndpoint](#ECSEndpoint)
 
 
 ## Descripción
@@ -40,13 +40,12 @@ Si usas maven
 - descargar la imagen : docker pull wilmarhiguerapragma/prueba-nequi:latest
 - ejecutar la imagen docker run -d -p 8083:8083 wilmarhiguerapragma/prueba-nequi:latest
 
-## Uso
-
+## ECSEndpoint
 1. **Franquicias**
 
-   - @Get http://localhost:8083/franquicia
-   - @Get http://localhost:8083/franquicia/{id}
-   - @Post http://localhost:8083/franquicia
+   - @Get [http://localhost:8083/franquicia](http://balanceo-nequi-2132359272.us-east-2.elb.amazonaws.com/franquicia)
+   - @Get [http://localhost:8083/franquicia](http://balanceo-nequi-2132359272.us-east-2.elb.amazonaws.com/franquicia)/{id}
+   - @Post [http://localhost:8083/franquicia](http://balanceo-nequi-2132359272.us-east-2.elb.amazonaws.com/franquicia)
      
    Example Body :  {    
          "nombre": "franquicia2"
@@ -55,14 +54,14 @@ Si usas maven
 
    - @Patch -> modificar nombre
      
-    http://localhost:8083/franquicia
+    [http://localhost:8083/franquicia](http://balanceo-nequi-2132359272.us-east-2.elb.amazonaws.com/franquicia)
    
      Example Body :{     
         "id": 1,
         "nombre": "franquicia1a"  
         }
 
-3. **sucursal**
+2. **sucursal**
    
 - @Get http://localhost:8083/sucursal
 - @Get http://localhost:8083/sucursal/{id}
@@ -85,7 +84,82 @@ Example Body : {
         }
      
 
-2. **Producto**
+3. **Producto**
+   
+- @Get http://localhost:8083/producto
+- @Get http://localhost:8083/producto/{id}
+- @Get -> traer el producto con maximo de stock de una sucursal , dada una franquicia {id} -> idfranquicia
+  
+http://localhost:8083/producto/ProductosMaxStock/{id}
+- @Post http://localhost:8083/producto
+
+Example Body :{    
+            "Sucursal":{
+             "id" : 2
+            },
+            "nombre": "producto4",
+            "stock" : 5  
+        }
+
+- @Patch -> modificar el stock o nombre http://localhost:8083/producto
+  
+Example Body :{     
+            "stock":3,
+            "id":4  ,
+            "nombre" :"producto4a"
+        }  
+- @Delete-> eliminar producto por el id
+  
+http://localhost:8083/producto/{id}
+  
+2. **sucursal**
+
+## Uso
+
+1. **Franquicias**
+
+   - @Get http://localhost:8083/franquicia
+   - @Get http://localhost:8083/franquicia/{id}
+   - @Post http://localhost:8083/franquicia
+     
+   Example Body :  {    
+         "nombre": "franquicia2"
+   
+     }
+
+   - @Patch -> modificar nombre
+     
+    http://localhost:8083/franquicia
+   
+     Example Body :{     
+        "id": 1,
+        "nombre": "franquicia1a"  
+        }
+
+2. **sucursal**
+   
+- @Get http://localhost:8083/sucursal
+- @Get http://localhost:8083/sucursal/{id}
+- @Post http://localhost:8083/sucursal
+  
+Example Body : {    
+            "Franquicia":{
+             "id" : 1
+            },
+            "nombre": "sucursal2"  
+            
+        }  
+        
+   - @Patch -> modificar nombre
+     http://localhost:8083/sucursal
+     
+     Example Body :{     
+        "id": 1,
+        "nombre": "franquicia1a"  
+        }
+     
+
+3. **Producto**
    
 - @Get http://localhost:8083/producto
 - @Get http://localhost:8083/producto/{id}
