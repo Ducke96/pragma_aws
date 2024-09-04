@@ -82,9 +82,9 @@ Example Body : {
    
 - @Get http://localhost:8083/producto
 - @Get http://localhost:8083/producto/{id}
-- @Get -> traer el producto con maximo de stock de una sucursal , dada una franquicia
+- @Get -> traer el producto con maximo de stock de una sucursal , dada una franquicia {id} -> idfranquicia
   
-http://localhost:8083/producto/ProductosMaxStock/1
+http://localhost:8083/producto/ProductosMaxStock/{id}
 - @Post http://localhost:8083/producto
 
 Example Body :{    
