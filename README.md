@@ -37,11 +37,9 @@ Si usas maven
 
 1. **Franquicias**
 
-   @Get
-   http://localhost:8083/franquicia
-   @Get
-   http://localhost:8083/franquicia/{id}
-   @Post 
+   - @Get http://localhost:8083/franquicia
+   - @Get http://localhost:8083/franquicia/{id}
+   - @Post 
    http://localhost:8083/franquicia
    Example Body : 
      {  
