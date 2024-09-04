@@ -44,7 +44,7 @@ class TestControllerUsuario {
 
     @Test
     void testGetUserById() throws Exception {
-        Franquicia franquicia = new Franquicia(1, "higuera");
+        Franquicia franquicia = new Franquicia(1, "higuera" , null);
         when(facadeFranquicia.getFranquicia(1)).thenReturn(Optional.of(franquicia));  // Simula el comportamiento del FacadeUsuario
 
         mockMvc.perform(MockMvcRequestBuilders.get("/franquicia/1")
@@ -76,8 +76,8 @@ void testSaveUser() throws Exception {
 }
 @Test
 void testGetAllUsers() throws Exception {
-    Franquicia franquicia1 = new Franquicia(1, "higuera");
-    Franquicia franquicia2 = new Franquicia(2, "perez");
+    Franquicia franquicia1 = new Franquicia(1, "higuera" , null);
+    Franquicia franquicia2 = new Franquicia(2, "perez", null);
     List<Franquicia> franquicias = Arrays.asList(franquicia1, franquicia2);
 
     when(facadeFranquicia.getFranquicias()).thenReturn(franquicias);  // Simula el comportamiento del FacadeUsuario

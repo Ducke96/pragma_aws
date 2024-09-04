@@ -18,6 +18,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.PutMapping;
 import com.pragma_aws.pragma_aws.facade.FacadeFranquicia;
 import com.pragma_aws.pragma_aws.controller.dto.FranquiciaDTO;
+import com.pragma_aws.pragma_aws.controller.dto.ProductoDTO;
+
 import java.util.Optional;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -31,7 +33,7 @@ public class FranquiciaController {
 
     private FacadeFranquicia facadeFranquicia;
 
-        @Autowired
+    @Autowired
     public FranquiciaController(FacadeFranquicia facadeFranquicia){
         this.facadeFranquicia = facadeFranquicia;
     }
@@ -42,8 +44,10 @@ public class FranquiciaController {
     public ResponseEntity<Object> getFranquicia(@PathVariable int id) {
 
         Optional<Franquicia> optionalFranquicia =facadeFranquicia.getFranquicia(id);
-        Franquicia franquiciaBd = optionalFranquicia.orElse(new Franquicia());
-        FranquiciaDTO franquicia = new FranquiciaDTO(franquiciaBd);
+         if (!optionalFranquicia.isPresent()) {
+        return new ResponseEntity<>("No encontrado", HttpStatus.NOT_FOUND);
+        }
+        FranquiciaDTO franquicia = new FranquiciaDTO(optionalFranquicia.get());
         return new ResponseEntity<>(franquicia,HttpStatus.OK );
 
     }
@@ -58,7 +62,7 @@ public class FranquiciaController {
     return new ResponseEntity<>(franquiciasDTOs, HttpStatus.OK);
 }
 @PostMapping
-public ResponseEntity<FranquiciaDTO> saveUsuario(@RequestBody FranquiciaDTO franquiciaDTO) {
+public ResponseEntity<FranquiciaDTO> saveFranquicia(@RequestBody FranquiciaDTO franquiciaDTO) {
     Franquicia franquicia = new Franquicia();
     franquicia.setNombre(franquiciaDTO.getNombre());   
     Franquicia savedFranquicia = facadeFranquicia.saveFranquicia(franquicia);
