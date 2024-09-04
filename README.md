@@ -10,6 +10,7 @@ Este es un proyecto de ejemplo desarrollado con Spring Boot. A continuación, se
 - [Docker](#Docker)
 - [Configuración](#configuración)
 - [ECSEndpoint](#ECSEndpoint)
+- [UsoLocal](#UsoLocal)
 
 
 ## Descripción
@@ -97,7 +98,7 @@ Example Body :{
 http://balanceo-nequi-2132359272.us-east-2.elb.amazonaws.com/producto/{id}
   
 
-## Uso Local
+## UsoLocal
 
 1. **Franquicias**
 
