@@ -79,13 +79,13 @@ Example Body :
             "stock" : 5
         }
 
-- @Path -> modificar el stock http://localhost:8083/producto
+- @Path -> modificar el stock o nombre http://localhost:8083/producto
   
 Example Body : 
-        {  
-            "id":4 ,  
-            "stock": 23
-            
+        {   
+            "stock":3,
+            "id":4  ,
+            "nombre" :"producto4a"
         }
 - @Delete-> eliminar producto por el id
   
