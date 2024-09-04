@@ -34,18 +34,19 @@ Si usas maven
 -mvn spring-boot:run
 
 ## Uso
--Franquicias
-@Get
-http://localhost:8083/franquicia
-@Get
-http://localhost:8083/franquicia/{id}
-@Post 
-http://localhost:8083/franquicia
-Example Body : 
-        {  
-            "nombre": "franquicia2"
-        }
--Sucursales
+- Franquicias
+ ```bash
+         @Get
+         http://localhost:8083/franquicia
+         @Get
+         http://localhost:8083/franquicia/{id}
+         @Post 
+         http://localhost:8083/franquicia
+         Example Body : 
+           {  
+               "nombre": "franquicia2"
+           }
+- Sucursales
 @Get
 http://localhost:8083/sucursal
 @Get
@@ -59,7 +60,7 @@ Example Body :
             },
             "nombre": "sucursal2"
         }
--Productos
+- Productos
 @Get
 http://localhost:8083/producto
 @Get
