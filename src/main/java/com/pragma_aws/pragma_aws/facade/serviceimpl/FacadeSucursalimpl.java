@@ -11,6 +11,7 @@ import com.pragma_aws.pragma_aws.facade.FacadeFranquicia;
 import com.pragma_aws.pragma_aws.facade.FacadeSucursal;
 import com.pragma_aws.pragma_aws.repository.SucursalRepository;
 import com.pragma_aws.pragma_aws.repository.maptables.Franquicia;
+import com.pragma_aws.pragma_aws.repository.maptables.Producto;
 import com.pragma_aws.pragma_aws.repository.maptables.Sucursal;
 
 @Service
@@ -47,4 +48,11 @@ public class FacadeSucursalimpl implements FacadeSucursal{
             return false;
         }
     }
+
+    @Override
+    public Sucursal updateSucursal(Sucursal sucursal) {
+        return sucursalRepository.save(sucursal);
+    }
+
+    
 }

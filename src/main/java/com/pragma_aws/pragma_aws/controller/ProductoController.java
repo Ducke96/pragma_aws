@@ -48,7 +48,7 @@ public ResponseEntity<Object> getProducto(@PathVariable int id) {
     if (!optionalProducto.isPresent()) {
         ProductoDTO savedProducto = new ProductoDTO();
         savedProducto.setId(id);
-        return new ResponseEntity<>("No encontrado", HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>("Producto No encontrado", HttpStatus.NOT_FOUND);
     }
     ProductoDTO producto = new ProductoDTO(optionalProducto.get());
     return new ResponseEntity<>(producto,HttpStatus.OK );
@@ -66,17 +66,21 @@ return new ResponseEntity<>(productoDTOs, HttpStatus.OK);
 }
 
 @PostMapping
-public ResponseEntity<ProductoDTO> saveProducto(@RequestBody ProductoDTO productoDTO) {
+public ResponseEntity<Object> saveProducto(@RequestBody ProductoDTO productoDTO) {
 Producto producto1 = new Producto();
-producto1.setNombre(productoDTO.getNombre());
+
+
+if(productoDTO.getNombre()== null || productoDTO.getNombre().isEmpty()){
+    return new ResponseEntity<>("nombre no puede estar vacio", HttpStatus.CREATED);
+}
 
 Optional<Sucursal> optionalSucursal =facadeSucursal.getSucursal(productoDTO.getSucursal().getId());
 if (!optionalSucursal.isPresent()) {
     ProductoDTO savedProducto = new ProductoDTO();
     savedProducto.setId(productoDTO.getSucursal().getId());
-    return new ResponseEntity<>(savedProducto, HttpStatus.NOT_FOUND);
+    return new ResponseEntity<>("Sucursal no encontrada", HttpStatus.NOT_FOUND);
 }
-
+producto1.setNombre(productoDTO.getNombre());
 Sucursal sucursal = optionalSucursal.get();
 producto1.setSucursal(sucursal);
 producto1.setStock(productoDTO.getStock());
@@ -87,30 +91,39 @@ return new ResponseEntity<>(savedProductoDTO, HttpStatus.CREATED);
 }
 
 @DeleteMapping("/{id}")
-public ResponseEntity<Void> deleteProducto(@PathVariable int id) {
+public ResponseEntity<Object> deleteProducto(@PathVariable int id) {
 boolean isRemoved = facadeProducto.deleteProducto(id);
 if (isRemoved) {
-    return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    return new ResponseEntity<>("Producto Eliminado",HttpStatus.NO_CONTENT);
 } else {
-    return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    return new ResponseEntity<>("Producto no encontrado",HttpStatus.NOT_FOUND);
 }
 }
 
 @PatchMapping
-public ResponseEntity<ProductoDTO> updateProducto(@RequestBody ProductoDTO productoDTO) {
+public ResponseEntity<Object> updateProducto(@RequestBody ProductoDTO productoDTO) {
+
+
+    if(productoDTO.getNombre() == null || productoDTO.getNombre().isEmpty()){
+        return new ResponseEntity<>("nombre no puede estar vacio", HttpStatus.BAD_REQUEST);
+    }
+    
 
 Optional<Producto> optionalProducto =facadeProducto.getProducto(productoDTO.getId());
 if (!optionalProducto.isPresent()) {
-    ProductoDTO savedProducto = new ProductoDTO();
-    savedProducto.setId(productoDTO.getSucursal().getId());
-    return new ResponseEntity<>(savedProducto, HttpStatus.NOT_FOUND);
+
+    return new ResponseEntity<>("Producto no encontrado", HttpStatus.NOT_FOUND);
 }
 
 Producto producto1 = optionalProducto.get();
+if(!productoDTO.getNombre().equals("")){
+    producto1.setNombre(productoDTO.getNombre());
+}
+
 producto1.setStock(productoDTO.getStock());
 Producto savedProducto = facadeProducto.updateProducto(producto1);
 ProductoDTO savedProductoDTO = new ProductoDTO(savedProducto);
-return new ResponseEntity<>(savedProductoDTO, HttpStatus.CREATED);
+return new ResponseEntity<>(savedProductoDTO, HttpStatus.OK);
 }
 
 

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.pragma_aws.pragma_aws.facade.FacadeFranquicia;
 import com.pragma_aws.pragma_aws.repository.FranquiciaRepository;
 import com.pragma_aws.pragma_aws.repository.maptables.Franquicia;
+import com.pragma_aws.pragma_aws.repository.maptables.Producto;
 
 @Service
 public class FacadeFranquiciaImpl implements FacadeFranquicia{
@@ -43,6 +44,10 @@ public class FacadeFranquiciaImpl implements FacadeFranquicia{
         } else {
             return false;
         }
+    }
+    @Override
+    public Franquicia updateProducto(Franquicia franquicia) {
+        return franquiciaRepository.save(franquicia);
     }
 }
 

@@ -1,5 +1,6 @@
 package com.pragma_aws.pragma_aws.facade;
 import com.pragma_aws.pragma_aws.repository.maptables.Franquicia;
+import com.pragma_aws.pragma_aws.repository.maptables.Producto;
 import com.pragma_aws.pragma_aws.repository.maptables.Sucursal;
 
 import java.util.List;
@@ -11,4 +12,5 @@ public interface FacadeSucursal {
     public Optional<Sucursal> getSucursal(int id);
     public List<Sucursal> getSucursal();
     public Boolean deleteSucursal(int id);
+    public Sucursal updateSucursal(Sucursal sucursal);
 }
