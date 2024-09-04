@@ -36,17 +36,19 @@ Si usas maven
 ## Uso
 - Franquicias
  ```bash
-         @Get
-         http://localhost:8083/franquicia
-         @Get
-         http://localhost:8083/franquicia/{id}
-         @Post 
-         http://localhost:8083/franquicia
-         Example Body : 
-           {  
-               "nombre": "franquicia2"
-           }
+   @Get
+   http://localhost:8083/franquicia
+   @Get
+   http://localhost:8083/franquicia/{id}
+   @Post 
+   http://localhost:8083/franquicia
+   Example Body : 
+     {  
+         "nombre": "franquicia2"
+     }
+
 - Sucursales
+ ```bash
 @Get
 http://localhost:8083/sucursal
 @Get
@@ -60,7 +62,11 @@ Example Body :
             },
             "nombre": "sucursal2"
         }
+
+
 - Productos
+
+ ```bash
 @Get
 http://localhost:8083/producto
 @Get
