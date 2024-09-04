@@ -30,12 +30,13 @@ Este proyecto es una aplicación Spring Boot que gestiona [franquicias, sucursal
 
 ## Configuración
 Si usas maven
--mvn clean install
--mvn spring-boot:run
+- mvn clean install
+- mvn spring-boot:run
 
 ## Uso
-- Franquicias
- ```bash
+
+1. **Franquicias**
+
    @Get
    http://localhost:8083/franquicia
    @Get
@@ -47,8 +48,8 @@ Si usas maven
          "nombre": "franquicia2"
      }
 
-- Sucursales
- ```bash
+2. **sucursal**
+   
 @Get
 http://localhost:8083/sucursal
 @Get
@@ -64,9 +65,8 @@ Example Body :
         }
 
 
-- Productos
-
- ```bash
+2. **Producto**
+   
 @Get
 http://localhost:8083/producto
 @Get
