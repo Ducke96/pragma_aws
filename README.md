@@ -41,62 +41,7 @@ Si usas maven
 - descargar la imagen : docker pull wilmarhiguerapragma/prueba-nequi:latest
 - ejecutar la imagen docker run -d -p 8083:8083 wilmarhiguerapragma/prueba-nequi:latest
 
-## ECSEndpoint
-1. **Franquicias**
 
-   - @Get http://balanceo-nequi-2132359272.us-east-2.elb.amazonaws.com/franquicia
-   - @Get http://balanceo-nequi-2132359272.us-east-2.elb.amazonaws.com/franquicia/{id}
-   - @Post http://balanceo-nequi-2132359272.us-east-2.elb.amazonaws.com/franquicia
-     
-   Example Body :  {    
-         "nombre": "franquicia2"
-   
-     }
-
-2. **sucursal**
-   
-- @Get http://balanceo-nequi-2132359272.us-east-2.elb.amazonaws.com/sucursal
-- @Get http://balanceo-nequi-2132359272.us-east-2.elb.amazonaws.com/sucursal/{id}
-- @Post http://balanceo-nequi-2132359272.us-east-2.elb.amazonaws.com/sucursal
-  
-Example Body : {    
-            "Franquicia":{
-             "id" : 1
-            },
-            "nombre": "sucursal2"  
-            
-        }  
-     
-
-3. **Producto**
-   
-- @Get http://balanceo-nequi-2132359272.us-east-2.elb.amazonaws.com/producto
-- @Get http://balanceo-nequi-2132359272.us-east-2.elb.amazonaws.com/producto/{id}
-- @Get -> traer el producto con maximo de stock de una sucursal , dada una franquicia {id} -> idfranquicia
-  
-http://balanceo-nequi-2132359272.us-east-2.elb.amazonaws.com/producto/ProductosMaxStock/{id}  
-
-- @Post http://balanceo-nequi-2132359272.us-east-2.elb.amazonaws.com/producto
-
-Example Body :{    
-            "Sucursal":{
-             "id" : 2
-            },
-            "nombre": "producto4",
-            "stock" : 5  
-        }
-
-- @Patch -> modificar el stock o nombre http://balanceo-nequi-2132359272.us-east-2.elb.amazonaws.com/producto
-  
-Example Body :{     
-            "stock":3,
-            "id":4  ,
-            "nombre" :"producto4a"
-        }  
-- @Delete-> eliminar producto por el id
-  
-http://balanceo-nequi-2132359272.us-east-2.elb.amazonaws.com/producto/{id}
-  
 
 ## UsoLocal
 
@@ -170,5 +115,67 @@ Example Body :{
 - @Delete-> eliminar producto por el id
   
 http://localhost:8083/producto/{id}
+
+
+
+
+
+## ECSEndpoint
+1. **Franquicias**
+
+   - @Get http://balanceo-nequi-2132359272.us-east-2.elb.amazonaws.com/franquicia
+   - @Get http://balanceo-nequi-2132359272.us-east-2.elb.amazonaws.com/franquicia/{id}
+   - @Post http://balanceo-nequi-2132359272.us-east-2.elb.amazonaws.com/franquicia
+     
+   Example Body :  {    
+         "nombre": "franquicia2"
+   
+     }
+
+2. **sucursal**
+   
+- @Get http://balanceo-nequi-2132359272.us-east-2.elb.amazonaws.com/sucursal
+- @Get http://balanceo-nequi-2132359272.us-east-2.elb.amazonaws.com/sucursal/{id}
+- @Post http://balanceo-nequi-2132359272.us-east-2.elb.amazonaws.com/sucursal
+  
+Example Body : {    
+            "Franquicia":{
+             "id" : 1
+            },
+            "nombre": "sucursal2"  
+            
+        }  
+     
+
+3. **Producto**
+   
+- @Get http://balanceo-nequi-2132359272.us-east-2.elb.amazonaws.com/producto
+- @Get http://balanceo-nequi-2132359272.us-east-2.elb.amazonaws.com/producto/{id}
+- @Get -> traer el producto con maximo de stock de una sucursal , dada una franquicia {id} -> idfranquicia
+  
+http://balanceo-nequi-2132359272.us-east-2.elb.amazonaws.com/producto/ProductosMaxStock/{id}  
+
+- @Post http://balanceo-nequi-2132359272.us-east-2.elb.amazonaws.com/producto
+
+Example Body :{    
+            "Sucursal":{
+             "id" : 2
+            },
+            "nombre": "producto4",
+            "stock" : 5  
+        }
+
+- @Patch -> modificar el stock o nombre http://balanceo-nequi-2132359272.us-east-2.elb.amazonaws.com/producto
+  
+Example Body :{     
+            "stock":3,
+            "id":4  ,
+            "nombre" :"producto4a"
+        }  
+- @Delete-> eliminar producto por el id
+  
+http://balanceo-nequi-2132359272.us-east-2.elb.amazonaws.com/producto/{id}
+  
+
 
 
