@@ -39,8 +39,8 @@ Si usas maven
 
    - @Get http://localhost:8083/franquicia
    - @Get http://localhost:8083/franquicia/{id}
-   - @Post 
-   http://localhost:8083/franquicia
+   - @Post http://localhost:8083/franquicia
+     
    Example Body : 
      {  
          "nombre": "franquicia2"
@@ -48,12 +48,10 @@ Si usas maven
 
 2. **sucursal**
    
-@Get
-http://localhost:8083/sucursal
-@Get
-http://localhost:8083/sucursal/{id}
-@Post 
-http://localhost:8083/sucursal
+- @Get http://localhost:8083/sucursal
+- @Get http://localhost:8083/sucursal/{id}
+- @Post http://localhost:8083/sucursal
+  
 Example Body : 
         {  
             "Franquicia":{
@@ -65,14 +63,13 @@ Example Body :
 
 2. **Producto**
    
-@Get
-http://localhost:8083/producto
-@Get
-http://localhost:8083/producto/{id}
-@Get -> traer el producto con maximo de stock de una sucursal , dada una franquicia
+- @Get http://localhost:8083/producto
+- @Get http://localhost:8083/producto/{id}
+- @Get -> traer el producto con maximo de stock de una sucursal , dada una franquicia
+  
 http://localhost:8083/producto/ProductosMaxStock/1
-@Post 
-http://localhost:8083/producto
+- @Post http://localhost:8083/producto
+- 
 Example Body : 
         {  
             "Sucursal":{
@@ -82,15 +79,16 @@ Example Body :
             "stock" : 5
         }
 
-@Path -> modificar el stock
-http://localhost:8083/producto
+- @Path -> modificar el stock http://localhost:8083/producto
+  
 Example Body : 
         {  
             "id":4 ,  
             "stock": 23
             
         }
-@Delete-> eliminar producto por el id
+- @Delete-> eliminar producto por el id
+  
 http://localhost:8083/producto/{id}
 
 
