@@ -43,9 +43,9 @@ Si usas maven
 ## ECSEndpoint
 1. **Franquicias**
 
-   - @Get http://localhost:8083/franquicia](http://balanceo-nequi-2132359272.us-east-2.elb.amazonaws.com/franquicia
-   - @Get http://localhost:8083/franquicia](http://balanceo-nequi-2132359272.us-east-2.elb.amazonaws.com/franquicia/{id}
-   - @Post http://localhost:8083/franquicia](http://balanceo-nequi-2132359272.us-east-2.elb.amazonaws.com/franquicia
+   - @Get http://balanceo-nequi-2132359272.us-east-2.elb.amazonaws.com/franquicia
+   - @Get http://balanceo-nequi-2132359272.us-east-2.elb.amazonaws.com/franquicia/{id}
+   - @Post http://balanceo-nequi-2132359272.us-east-2.elb.amazonaws.com/franquicia
      
    Example Body :  {    
          "nombre": "franquicia2"
@@ -54,7 +54,7 @@ Si usas maven
 
    - @Patch -> modificar nombre
      
-    [http://localhost:8083/franquicia](http://balanceo-nequi-2132359272.us-east-2.elb.amazonaws.com/franquicia)
+    http://balanceo-nequi-2132359272.us-east-2.elb.amazonaws.com/franquicia  
    
      Example Body :{     
         "id": 1,
@@ -63,9 +63,9 @@ Si usas maven
 
 2. **sucursal**
    
-- @Get http://localhost:8083/sucursal
-- @Get http://localhost:8083/sucursal/{id}
-- @Post http://localhost:8083/sucursal
+- @Get http://balanceo-nequi-2132359272.us-east-2.elb.amazonaws.com/sucursal
+- @Get http://balanceo-nequi-2132359272.us-east-2.elb.amazonaws.com/sucursal/{id}
+- @Post http://balanceo-nequi-2132359272.us-east-2.elb.amazonaws.com/sucursal
   
 Example Body : {    
             "Franquicia":{
@@ -76,7 +76,7 @@ Example Body : {
         }  
         
    - @Patch -> modificar nombre
-     http://localhost:8083/sucursal
+     http://balanceo-nequi-2132359272.us-east-2.elb.amazonaws.com/sucursal
      
      Example Body :{     
         "id": 1,
@@ -86,12 +86,13 @@ Example Body : {
 
 3. **Producto**
    
-- @Get http://localhost:8083/producto
-- @Get http://localhost:8083/producto/{id}
+- @Get http://balanceo-nequi-2132359272.us-east-2.elb.amazonaws.com/producto
+- @Get http://balanceo-nequi-2132359272.us-east-2.elb.amazonaws.com/producto/{id}
 - @Get -> traer el producto con maximo de stock de una sucursal , dada una franquicia {id} -> idfranquicia
   
-http://localhost:8083/producto/ProductosMaxStock/{id}
-- @Post http://localhost:8083/producto
+http://balanceo-nequi-2132359272.us-east-2.elb.amazonaws.com/producto/ProductosMaxStock/{id}  
+
+- @Post http://balanceo-nequi-2132359272.us-east-2.elb.amazonaws.com/producto
 
 Example Body :{    
             "Sucursal":{
@@ -101,7 +102,7 @@ Example Body :{
             "stock" : 5  
         }
 
-- @Patch -> modificar el stock o nombre http://localhost:8083/producto
+- @Patch -> modificar el stock o nombre http://balanceo-nequi-2132359272.us-east-2.elb.amazonaws.com/producto
   
 Example Body :{     
             "stock":3,
@@ -110,9 +111,8 @@ Example Body :{
         }  
 - @Delete-> eliminar producto por el id
   
-http://localhost:8083/producto/{id}
+http://balanceo-nequi-2132359272.us-east-2.elb.amazonaws.com/producto/{id}
   
-2. **sucursal**
 
 ## Uso
 
