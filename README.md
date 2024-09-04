@@ -41,25 +41,42 @@ Si usas maven
    - @Get http://localhost:8083/franquicia/{id}
    - @Post http://localhost:8083/franquicia
      
-   Example Body : 
-     {  
+   Example Body :  {    
          "nombre": "franquicia2"
+   
      }
 
-2. **sucursal**
+   - @Patch -> modificar nombre
+     
+    http://localhost:8083/franquicia
+   
+     Example Body :{     
+        "id": 1,
+        "nombre": "franquicia1a"  
+        }
+
+3. **sucursal**
    
 - @Get http://localhost:8083/sucursal
 - @Get http://localhost:8083/sucursal/{id}
 - @Post http://localhost:8083/sucursal
   
-Example Body : 
-        {  
+Example Body : {    
             "Franquicia":{
              "id" : 1
             },
-            "nombre": "sucursal2"
+            "nombre": "sucursal2"  
+            
+        }  
+        
+   - @Patch -> modificar nombre
+     http://localhost:8083/sucursal
+     
+     Example Body :{     
+        "id": 1,
+        "nombre": "franquicia1a"  
         }
-
+     
 
 2. **Producto**
    
@@ -70,23 +87,21 @@ Example Body :
 http://localhost:8083/producto/ProductosMaxStock/1
 - @Post http://localhost:8083/producto
 
-Example Body : 
-        {  
+Example Body :{    
             "Sucursal":{
              "id" : 2
             },
             "nombre": "producto4",
-            "stock" : 5
+            "stock" : 5  
         }
 
-- @Path -> modificar el stock o nombre http://localhost:8083/producto
+- @Patch -> modificar el stock o nombre http://localhost:8083/producto
   
-Example Body : 
-        {   
+Example Body :{     
             "stock":3,
             "id":4  ,
             "nombre" :"producto4a"
-        }
+        }  
 - @Delete-> eliminar producto por el id
   
 http://localhost:8083/producto/{id}
