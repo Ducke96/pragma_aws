@@ -7,6 +7,7 @@ Este es un proyecto de ejemplo desarrollado con Spring Boot. A continuación, se
 - [Descripción](#descripción)
 - [Requisitos](#requisitos)
 - [Instalación](#instalación)
+- [Docker](#Docker)
 - [Configuración](#configuración)
 - [Endpoints](#endpoints)
 
@@ -27,6 +28,14 @@ Este proyecto es una aplicación Spring Boot que gestiona [franquicias, sucursal
 
    ```bash
    https://github.com/Ducke96/pragma_aws.git
+
+
+## Docker 
+- descargar la imagen : docker pull wilmarhiguerapragma/prueba-nequi:latest
+- ejecutar la imagen docker run -d -p 8083:8083 wilmarhiguerapragma/prueba-nequi:latest
+  
+
+
 
 ## Configuración
 Si usas maven
