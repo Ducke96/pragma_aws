@@ -18,7 +18,7 @@ Este proyecto es una aplicación Spring Boot que gestiona [franquicias, sucursal
 
 ## Requisitos
 
-- JDK 11 o superior
+- JDK 21 o superior
 - Maven 3.6.0 o superior
 - [la base de datos se encuentra en RDS AWS con coneccion url : franquicias.chiogag2iee5.us-east-2.rds.amazonaws.com/apieva , con puerto 3306 ,user :admin , password :admin1234]
 
@@ -52,15 +52,6 @@ Si usas maven
    
      }
 
-   - @Patch -> modificar nombre
-     
-    http://balanceo-nequi-2132359272.us-east-2.elb.amazonaws.com/franquicia  
-   
-     Example Body :{     
-        "id": 1,
-        "nombre": "franquicia1a"  
-        }
-
 2. **sucursal**
    
 - @Get http://balanceo-nequi-2132359272.us-east-2.elb.amazonaws.com/sucursal
@@ -74,14 +65,6 @@ Example Body : {
             "nombre": "sucursal2"  
             
         }  
-        
-   - @Patch -> modificar nombre
-     http://balanceo-nequi-2132359272.us-east-2.elb.amazonaws.com/sucursal
-     
-     Example Body :{     
-        "id": 1,
-        "nombre": "franquicia1a"  
-        }
      
 
 3. **Producto**
@@ -114,7 +97,7 @@ Example Body :{
 http://balanceo-nequi-2132359272.us-east-2.elb.amazonaws.com/producto/{id}
   
 
-## Uso
+## Uso Local
 
 1. **Franquicias**
 
